@@ -4,7 +4,7 @@ import { ProfilePictureService } from '../application/ports/profile-picture-serv
 @Injectable()
 export class RandomProfilePictureService implements ProfilePictureService {
   getUrl(userId: string): Promise<string> {
-    const seed = encodeURIComponent(userId);
+    const seed = encodeURIComponent(userId.length - Date.now());
 
     return Promise.resolve(
       `https://api.dicebear.com/7.x/identicon/svg?seed=${seed}`,
