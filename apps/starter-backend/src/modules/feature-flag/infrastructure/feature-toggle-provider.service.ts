@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {
   FeatureToggleProvider,
   type FeatureFlagKey,
-} from '@speechscribe/contracts';
+} from '@speechscribe/contracts/ports/feature-toggle-provider.port';
 
 const DEFAULT_FLAGS: Record<FeatureFlagKey, boolean> = {
   'profile-avatars': true,

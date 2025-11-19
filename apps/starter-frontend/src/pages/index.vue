@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ORPCError } from '@orpc/client';
-import type { User } from '@speechscribe/shared';
+import type { User } from '@speechscribe/shared/types/user';
 
 const client = useContractsClient();
 const user = ref<User | null>(null);

@@ -13,7 +13,7 @@
     "lint": "turbo run lint",
     "fix": "turbo run fix",
     "check": "turbo run check",
-    "go": "npm run fix && npm run build && npm run dev",
+    "go": "npm run prepare && npm run fix && npm run build && npm run dev",
     "check-env": "ts-node -r tsconfig-paths/register scripts/check-env.ts",
     "prepare": "turbo run prepare --parallel && npm run build --workspace packages/shared && npm run build --workspace packages/contracts",
     "test": "turbo run test",

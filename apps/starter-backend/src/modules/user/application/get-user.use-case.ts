@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import {
   FeatureToggleProvider,
   type FeatureFlagKey,
-} from '@speechscribe/contracts';
+} from '@speechscribe/contracts/ports/feature-toggle-provider.port';
 import { ProfilePictureService } from './ports/profile-picture-service.port';
-import type { User } from '@speechscribe/shared';
+import type { User } from '@speechscribe/shared/types/user';
 
 const PROFILE_AVATAR_FLAG: FeatureFlagKey = 'profile-avatars';
 

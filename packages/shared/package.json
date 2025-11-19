@@ -3,8 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    "./types/user": {
+      "types": "./dist/types/user.d.ts",
+      "import": "./dist/types/user.js",
+      "default": "./dist/types/user.js"
+    }
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc-alias",
     "check": "tsc -p tsconfig.json --noEmit"

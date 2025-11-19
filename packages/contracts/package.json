@@ -3,8 +3,33 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "default": "./dist/client.js"
+    },
+    "./contract": {
+      "types": "./dist/contract.d.ts",
+      "import": "./dist/contract.js",
+      "default": "./dist/contract.js"
+    },
+    "./ports/feature-toggle-provider.port": {
+      "types": "./dist/ports/feature-toggle-provider.port.d.ts",
+      "import": "./dist/ports/feature-toggle-provider.port.js",
+      "default": "./dist/ports/feature-toggle-provider.port.js"
+    },
+    "./responses/me": {
+      "types": "./dist/responses/me.d.ts",
+      "import": "./dist/responses/me.js",
+      "default": "./dist/responses/me.js"
+    },
+    "./schemas/user": {
+      "types": "./dist/schemas/user.d.ts",
+      "import": "./dist/schemas/user.js",
+      "default": "./dist/schemas/user.js"
+    }
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc-alias",
     "check": "tsc -p tsconfig.json --noEmit"

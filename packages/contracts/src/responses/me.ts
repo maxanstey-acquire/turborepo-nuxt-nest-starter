@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { userSchema } from '../schemas/user';
-import type { User } from '@speechscribe/shared';
+import type { User } from '@speechscribe/shared/types/user';
 
 export type MeResponse = {
   user: User;
