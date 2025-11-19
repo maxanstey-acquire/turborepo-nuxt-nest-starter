@@ -34,6 +34,13 @@
     "build": "tsc -p tsconfig.json && tsc-alias",
     "check": "tsc -p tsconfig.json --noEmit"
   },
+  "dependencies": {
+    "@orpc/client": "^1.11.3",
+    "@orpc/contract": "^1.11.3",
+    "@orpc/openapi-client": "^1.11.3",
+    "@speechscribe/shared": "workspace:*",
+    "zod": "^3.23.8"
+  },
   "turbo": {
     "outputs": ["dist/**"]
   }

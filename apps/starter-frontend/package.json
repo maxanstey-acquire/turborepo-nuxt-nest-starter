@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@orpc/client": "^1.11.3",
-    "@speechscribe/contracts": "0.0.0",
-    "@speechscribe/shared": "0.0.0"
+    "@speechscribe/contracts": "workspace:*",
+    "@speechscribe/shared": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.17",
+    "tailwindcss": "^4.1.17"
   },
   "scripts": {
     "dev": "nuxt dev",
