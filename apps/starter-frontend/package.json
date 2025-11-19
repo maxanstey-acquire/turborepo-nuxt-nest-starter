@@ -1,0 +1,22 @@
+{
+  "name": "@speechscribe/frontend",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@orpc/client": "^1.11.3",
+    "@speechscribe/contracts": "0.0.0",
+    "@speechscribe/shared": "0.0.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt generate",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "check": "nuxt typecheck",
+    "check-tsc": "vue-tsc --strict -p tsconfig.json --noEmit",
+    "prepare": "nuxt prepare"
+  },
+  "turbo": {
+    "outputs": [".nuxt/**", ".output/**"]
+  }
+}

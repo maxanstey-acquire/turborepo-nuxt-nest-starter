@@ -1,0 +1,21 @@
+{
+  "name": "@speechscribe/backend",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@speechscribe/contracts": "0.0.0",
+    "@speechscribe/shared": "0.0.0",
+    "@orpc/nest": "^1.11.3"
+  },
+  "scripts": {
+    "dev": "nest start --watch",
+    "build": "tsc -p tsconfig.app.json",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "check": "tsc -p tsconfig.app.json --noEmit",
+    "serve": "NODE_ENV=production node -r tsconfig-paths/register dist/apps/backend/main.js"
+  },
+  "turbo": {
+    "outputs": ["dist/**"]
+  }
+}
