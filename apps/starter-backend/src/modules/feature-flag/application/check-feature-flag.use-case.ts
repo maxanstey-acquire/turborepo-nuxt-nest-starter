@@ -1,8 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import {
-  FeatureToggleProvider,
-  type FeatureFlagKey,
-} from '@speechscribe/contracts/ports/feature-toggle-provider.port';
+import { FeatureFlagKey } from '@speechscribe/shared/types/feature-flags';
+import { FeatureToggleProvider } from '@ports/feature-toggle-provider.port';
 
 @Injectable()
 export class CheckFeatureFlagUseCase {

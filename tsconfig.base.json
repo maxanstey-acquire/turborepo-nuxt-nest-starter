@@ -6,7 +6,6 @@
     "lib": ["ES2022", "DOM"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strict": true,
-    "baseUrl": "."
+    "strict": true
   }
 }

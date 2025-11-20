@@ -264,15 +264,15 @@ importers:
       '@orpc/client':
         specifier: ^1.11.3
         version: 1.11.3
-      '@tailwindcss/postcss':
-        specifier: ^4.1.17
-        version: 4.1.17
       '@speechscribe/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
       '@speechscribe/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      '@tailwindcss/postcss':
+        specifier: ^4.1.17
+        version: 4.1.17
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.17

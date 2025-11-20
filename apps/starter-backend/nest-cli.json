@@ -4,6 +4,9 @@
   "sourceRoot": "src",
   "compilerOptions": {
     "tsConfigPath": "tsconfig.app.json",
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "paths": {
+      "@ports/*": ["./src/shared/application/ports/*"]
+    }
   }
 }

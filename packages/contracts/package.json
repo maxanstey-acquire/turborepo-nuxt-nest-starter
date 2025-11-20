@@ -14,11 +14,6 @@
       "import": "./dist/contract.js",
       "default": "./dist/contract.js"
     },
-    "./ports/feature-toggle-provider.port": {
-      "types": "./dist/ports/feature-toggle-provider.port.d.ts",
-      "import": "./dist/ports/feature-toggle-provider.port.js",
-      "default": "./dist/ports/feature-toggle-provider.port.js"
-    },
     "./responses/me": {
       "types": "./dist/responses/me.d.ts",
       "import": "./dist/responses/me.js",

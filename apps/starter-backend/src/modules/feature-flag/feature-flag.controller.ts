@@ -2,8 +2,8 @@ import { Controller } from '@nestjs/common';
 import { Implement } from '@orpc/nest';
 import { implement } from '@orpc/server';
 import { contract } from '@speechscribe/contracts/contract';
+import { FeatureFlagKey } from '@speechscribe/shared/types/feature-flags';
 import { CheckFeatureFlagUseCase } from './application/check-feature-flag.use-case';
-import type { FeatureFlagKey } from '@speechscribe/contracts/ports/feature-toggle-provider.port';
 
 @Controller()
 export class FeatureFlagController {

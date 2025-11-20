@@ -8,6 +8,11 @@
       "types": "./dist/types/user.d.ts",
       "import": "./dist/types/user.js",
       "default": "./dist/types/user.js"
+    },
+    "./types/feature-flags": {
+      "types": "./dist/types/feature-flags.d.ts",
+      "import": "./dist/types/feature-flags.js",
+      "default": "./dist/types/feature-flags.js"
     }
   },
   "scripts": {

@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@orpc/nest": "^1.11.3",
     "@orpc/server": "^1.11.3",
     "@speechscribe/contracts": "workspace:*",
-    "@speechscribe/shared": "workspace:*",
-    "@orpc/nest": "^1.11.3"
+    "@speechscribe/shared": "workspace:*"
   },
   "scripts": {
     "dev": "nest start --watch",
@@ -17,6 +17,8 @@
     "serve": "NODE_ENV=production node -r tsconfig-paths/register dist/apps/backend/main.js"
   },
   "turbo": {
-    "outputs": ["dist/**"]
+    "outputs": [
+      "dist/**"
+    ]
   }
 }

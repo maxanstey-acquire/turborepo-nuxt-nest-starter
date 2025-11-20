@@ -4,7 +4,10 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "paths": {
+      "@ports/*": ["./src/shared/application/ports/*"]
+    }
   },
   "include": ["src"]
 }

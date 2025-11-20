@@ -1,7 +1,7 @@
 import { oc } from '@orpc/contract';
 import { z } from 'zod';
-import { FEATURE_FLAG_KEYS } from './ports/feature-toggle-provider.port';
 import { meResponseSchema } from './responses/me';
+import { FEATURE_FLAG_KEYS } from '@speechscribe/shared/types/feature-flags';
 
 const featureFlagParamsSchema = z.object({
   params: z.object({

@@ -23,3 +23,5 @@ logs
 node_modules
 tsconfig.build.tsbuildinfo
 tsconfig.tsbuildinfo
+AGENTS.md
+GEMINI.md
