@@ -190,7 +190,6 @@ export default tseslint.config(
             ['object', 'type'],
           ],
           pathGroups: [
-            // { pattern: '@speechscribe/**', group: 'internal', position: 'before' },
             { pattern: '@core/**', group: 'internal', position: 'before' },
             { pattern: '@media/**', group: 'internal', position: 'before' },
             { pattern: '@storage/**', group: 'internal', position: 'before' },

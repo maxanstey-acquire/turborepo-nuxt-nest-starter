@@ -1,12 +1,12 @@
 {
-  "name": "@speechscribe/backend",
+  "name": "@app/backend",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
     "@orpc/nest": "^1.11.3",
     "@orpc/server": "^1.11.3",
-    "@speechscribe/contracts": "workspace:*",
-    "@speechscribe/shared": "workspace:*"
+    "@app/contracts": "workspace:*",
+    "@app/shared": "workspace:*"
   },
   "scripts": {
     "dev": "nest start --watch",

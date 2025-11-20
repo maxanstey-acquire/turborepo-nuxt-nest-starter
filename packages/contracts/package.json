@@ -1,5 +1,5 @@
 {
-  "name": "@speechscribe/contracts",
+  "name": "@app/contracts",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -33,7 +33,7 @@
     "@orpc/client": "^1.11.3",
     "@orpc/contract": "^1.11.3",
     "@orpc/openapi-client": "^1.11.3",
-    "@speechscribe/shared": "workspace:*",
+    "@app/shared": "workspace:*",
     "zod": "^3.23.8"
   },
   "turbo": {

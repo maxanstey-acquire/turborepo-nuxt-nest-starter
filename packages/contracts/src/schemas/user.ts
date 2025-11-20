@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { User } from '@speechscribe/shared/types/user';
+import type { User } from '@app/shared/types/user';
 
 export const userSchema: z.ZodType<User> = z.object({
   id: z.string(),

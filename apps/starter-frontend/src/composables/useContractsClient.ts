@@ -1,4 +1,4 @@
-import { makeClient } from '@speechscribe/contracts/client';
+import { makeClient } from '@app/contracts/client';
 
 export const useContractsClient = () => {
   const config = useRuntimeConfig();

@@ -244,32 +244,32 @@ importers:
         specifier: ^2.2.8
         version: 2.2.12(typescript@5.9.3)
 
-  apps/starter-backend:
+  apps/api:
     dependencies:
+      '@app/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
+      '@app/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@orpc/nest':
         specifier: ^1.11.3
         version: 1.11.3(@nestjs/common@11.1.9(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.9)(crossws@0.3.5)(express@5.1.0)(rxjs@7.8.2)(ws@8.18.3)
       '@orpc/server':
         specifier: ^1.11.3
         version: 1.11.3(crossws@0.3.5)(ws@8.18.3)
-      '@speechscribe/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@speechscribe/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
 
   apps/starter-frontend:
     dependencies:
+      '@app/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
+      '@app/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@orpc/client':
         specifier: ^1.11.3
         version: 1.11.3
-      '@speechscribe/contracts':
-        specifier: workspace:*
-        version: link:../../packages/contracts
-      '@speechscribe/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
       '@tailwindcss/postcss':
         specifier: ^4.1.17
         version: 4.1.17
@@ -279,6 +279,9 @@ importers:
 
   packages/contracts:
     dependencies:
+      '@app/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@orpc/client':
         specifier: ^1.11.3
         version: 1.11.3
@@ -288,9 +291,6 @@ importers:
       '@orpc/openapi-client':
         specifier: ^1.11.3
         version: 1.11.3
-      '@speechscribe/shared':
-        specifier: workspace:*
-        version: link:../shared
       zod:
         specifier: ^3.23.8
         version: 3.25.76

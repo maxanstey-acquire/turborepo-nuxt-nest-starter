@@ -1,11 +1,11 @@
 {
-  "name": "@speechscribe/frontend",
+  "name": "@app/frontend",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
     "@orpc/client": "^1.11.3",
-    "@speechscribe/contracts": "workspace:*",
-    "@speechscribe/shared": "workspace:*",
+    "@app/contracts": "workspace:*",
+    "@app/shared": "workspace:*",
     "@tailwindcss/postcss": "^4.1.17",
     "tailwindcss": "^4.1.17"
   },

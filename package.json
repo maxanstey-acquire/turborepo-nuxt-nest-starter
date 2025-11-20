@@ -1,5 +1,5 @@
 {
-  "name": "speechscribe-turbo",
+  "name": "app-turbo",
   "private": true,
   "version": "0.0.0",
   "packageManager": "pnpm@9.12.3",
@@ -15,7 +15,7 @@
     "check": "turbo run check",
     "go": "pnpm run prepare && pnpm run fix && pnpm run build && pnpm run dev",
     "check-env": "ts-node -r tsconfig-paths/register scripts/check-env.ts",
-    "prepare": "turbo run prepare --parallel && pnpm --filter @speechscribe/shared run build && pnpm --filter @speechscribe/contracts run build",
+    "prepare": "turbo run prepare --parallel && pnpm --filter @app/shared run build && pnpm --filter @app/contracts run build",
     "test": "turbo run test",
     "nuke": "rm -rf node_modules && find . -name '.nuxt' -type d -prune -exec rm -rf {} + && find . -name 'dist' -type d -prune -exec rm -rf {} + && find . -name '.output' -type d -prune -exec rm -rf {} +"
   },

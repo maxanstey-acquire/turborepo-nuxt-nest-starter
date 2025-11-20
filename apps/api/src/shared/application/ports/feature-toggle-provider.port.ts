@@ -1,4 +1,4 @@
-import { FeatureFlagKey } from '@speechscribe/shared/types/feature-flags';
+import { FeatureFlagKey } from '@app/shared/types/feature-flags';
 
 export abstract class FeatureToggleProvider {
   private constructor() {}

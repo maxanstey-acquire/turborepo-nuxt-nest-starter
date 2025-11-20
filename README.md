@@ -1,4 +1,4 @@
-# Speechscribe Starter
+# Nest + Nuxt + Packages Starter
 
 Nuxt + Nest starter that demonstrates typed front/back communication through a shared oRPC contract and a modular
 clean-architecture backend.
@@ -39,6 +39,29 @@ clean-architecture backend.
    `FeatureToggleProvider`).
 4. Infrastructure adapters fulfill those ports (generate avatar URLs, toggle flags) and return values to the use case,
    which returns a shared `User` type that matches the Zod schema.
+
+## DI Tokens via Abstract Classes
+
+This starter uses **abstract classes as DI tokens** instead of Nest symbols.  
+Each cross-cutting port is declared as an abstract class with a private constructor (so it cannot be instantiated):
+
+```
+export abstract class FeatureToggleProvider {
+  private constructor() {}
+  abstract isEnabled(flag: FeatureFlagKey): Promise<boolean>;
+}
+```
+
+Concrete adapters **implement** the abstract class (not extend it), giving you interface-like semantics with a runtime
+token:
+
+```
+export class InMemoryFeatureToggleProvider implements FeatureToggleProvider {
+  async isEnabled(flag: FeatureFlagKey): Promise<boolean> { ... }
+}
+```
+
+This keeps DI wiring simple and type-safe while avoiding Nest’s symbol indirection.
 
 ## Notes
 

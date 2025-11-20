@@ -1,7 +1,7 @@
+import { contract } from '@app/contracts/contract';
 import { Controller } from '@nestjs/common';
 import { Implement } from '@orpc/nest';
 import { implement } from '@orpc/server';
-import { contract } from '@speechscribe/contracts/contract';
 import { GetUserUseCase } from './application/get-user.use-case';
 
 @Controller()
