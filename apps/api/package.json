@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@orpc/nest": "^1.11.3",
-    "@orpc/server": "^1.11.3",
     "@app/contracts": "workspace:*",
-    "@app/shared": "workspace:*"
+    "@app/shared": "workspace:*",
+    "@app/prisma": "workspace:*",
+    "@orpc/nest": "^1.11.3",
+    "@orpc/server": "^1.11.3"
   },
   "scripts": {
+    "repl": "nest start --entryFile repl",
     "dev": "nest start --watch",
     "build": "tsc -p tsconfig.app.json",
     "lint": "eslint .",

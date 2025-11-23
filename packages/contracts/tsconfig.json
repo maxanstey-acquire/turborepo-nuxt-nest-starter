@@ -11,7 +11,7 @@
     "resolveJsonModule": true,
     "baseUrl": "./src",
     "paths": {
-      "*": ["*"]
+      "@schemas/*": ["./schemas/*"]
     },
     "rootDir": "src",
     "outDir": "dist"

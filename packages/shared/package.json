@@ -13,6 +13,11 @@
       "types": "./dist/types/feature-flags.d.ts",
       "import": "./dist/types/feature-flags.js",
       "default": "./dist/types/feature-flags.js"
+    },
+    "./types/subscription": {
+      "types": "./dist/types/subscription.d.ts",
+      "import": "./dist/types/subscription.js",
+      "default": "./dist/types/subscription.js"
     }
   },
   "scripts": {

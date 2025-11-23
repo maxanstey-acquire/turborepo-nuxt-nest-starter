@@ -9,9 +9,9 @@ import { CheckFeatureFlagUseCase } from './application/check-feature-flag.use-ca
 export class FeatureFlagController {
   constructor(private readonly checkFlag: CheckFeatureFlagUseCase) {}
 
-  @Implement(contract.featureFlags.get)
+  @Implement(contract.featureFlags.getById)
   getFlag() {
-    return implement(contract.featureFlags.get).handler(
+    return implement(contract.featureFlags.getById).handler(
       async ({
         input,
       }): Promise<{ flag: FeatureFlagKey; enabled: boolean }> => {
