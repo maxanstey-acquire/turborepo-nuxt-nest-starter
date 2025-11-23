@@ -1,8 +1,8 @@
-import { FeatureFlagKey } from '@app/shared/types/feature-flags';
 import { Injectable } from '@nestjs/common';
+import { FeatureFlagKey } from '@app/shared/types/feature-flags';
+import type { User } from '@app/shared/types/user';
 import { FeatureToggleProvider } from '@ports/feature-toggle-provider.port';
 import { ProfilePictureService } from './ports/profile-picture-service.port';
-import type { User } from '@app/shared/types/user';
 
 const PROFILE_AVATAR_FLAG: FeatureFlagKey = 'profile-avatars';
 

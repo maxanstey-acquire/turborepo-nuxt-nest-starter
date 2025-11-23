@@ -8,7 +8,7 @@ This README is a quick-start and map; deeper docs will live alongside each app/p
 1. Install deps: `pnpm install`
 2. Generate Prisma client: `npm run generate`
 3. Run the Prisma migrations: `npm run db:migrate`
-4. Build packages/ for Nest/Nuxt: `npm run build`
+4. Build packages for Nest/Nuxt: `npm run build`
 5. Develop: `npm run dev`
 
 ## Workspace Map

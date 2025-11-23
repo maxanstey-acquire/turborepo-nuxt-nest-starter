@@ -1,5 +1,5 @@
-import { FeatureFlagKey } from '@app/shared/types/feature-flags';
 import { Injectable } from '@nestjs/common';
+import { FeatureFlagKey } from '@app/shared/types/feature-flags';
 import { FeatureToggleProvider } from '@ports/feature-toggle-provider.port';
 
 const DEFAULT_FLAGS: Record<FeatureFlagKey, boolean> = {

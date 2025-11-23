@@ -12,6 +12,7 @@
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",
+    "lint": "eslint .",
     "clean": "rm -rf dist"
   },
   "keywords": [],

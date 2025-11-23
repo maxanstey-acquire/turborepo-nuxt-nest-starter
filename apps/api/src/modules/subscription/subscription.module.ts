@@ -1,5 +1,5 @@
-import { PrismaModule } from '@app/prisma';
 import { Module } from '@nestjs/common';
+import { PrismaModule } from '@app/prisma';
 import { SubscriptionRepository } from './application/ports/subscription.repository.port';
 import { PrismaSubscriptionRepository } from './infrastructure/prisma-subscription.repository';
 import { SubscriptionMapper } from './infrastructure/subscription.mapper';

@@ -23,6 +23,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc-alias",
     "check": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
     "clean": "rm -rf dist"
   },
   "turbo": {

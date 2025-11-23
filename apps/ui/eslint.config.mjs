@@ -33,9 +33,7 @@ const nuxtConfig = withNuxt({
           ['parent', 'sibling', 'index'],
           ['object', 'type'],
         ],
-        pathGroups: [
-          { pattern: '@/**', group: 'internal', position: 'before' },
-        ],
+        pathGroups: [{ pattern: '@/**', group: 'internal', position: 'before' }],
         pathGroupsExcludedImportTypes: ['builtin'],
         alphabetize: { order: 'asc', caseInsensitive: true },
         'newlines-between': 'never',
@@ -45,5 +43,5 @@ const nuxtConfig = withNuxt({
 });
 
 export default nuxtConfig.append({
-  ignores: ['.nuxt/**', '.nuxt/**', '.build/**', 'dist/**'],
+  ignores: ['.nuxt/**', '.build/**', 'dist/**', '.output/**', 'eslint.config.mjs'],
 });

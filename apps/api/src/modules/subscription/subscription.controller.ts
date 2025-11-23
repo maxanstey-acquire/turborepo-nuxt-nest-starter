@@ -1,9 +1,9 @@
-import { contract } from '@app/contracts/contract';
 import { Controller } from '@nestjs/common';
 import { Implement } from '@orpc/nest';
 import { implement } from '@orpc/server';
+import { contract } from '@app/contracts/contract';
 import { SubscriptionRepository } from './application/ports/subscription.repository.port';
-import { SubscriptionMapper } from './infrastructure/subscription.mapper';
+import { SubscriptionDtoMapper } from './application/subscription.dto.mapper';
 
 @Controller()
 export class SubscriptionController {
@@ -18,7 +18,7 @@ export class SubscriptionController {
         const sub = await this.subscriptionRepository.findById(input.params.id);
 
         return {
-          subscription: sub ? SubscriptionMapper.toDto(sub) : null,
+          subscription: sub ? SubscriptionDtoMapper.toDto(sub) : null,
         };
       },
     );
