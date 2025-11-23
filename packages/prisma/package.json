@@ -5,10 +5,14 @@
   "main": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "prepare": "prisma generate",
+    "generate": "prisma generate",
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "prepare": "pnpm run generate && pnpm run build",
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "clean": "rm -rf dist"
   },
   "keywords": [],
   "author": "",

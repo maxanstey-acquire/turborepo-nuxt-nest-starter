@@ -8,20 +8,19 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build",
+    "dev": "pnpm run generate && turbo run dev --parallel",
+    "build": "pnpm run generate && turbo run build",
     "lint": "turbo run lint",
     "fix": "turbo run fix",
     "check": "turbo run check",
-    "go": "pnpm run prepare && pnpm run fix && pnpm run build && pnpm run dev",
+    "generate": "pnpm --filter @app/prisma run generate",
     "check-env": "ts-node -r tsconfig-paths/register scripts/check-env.ts",
-    "prepare": "turbo run prepare --parallel && pnpm --filter @app/shared run build && pnpm --filter @app/contracts run build",
     "test": "turbo run test",
     "prisma": "pnpm --filter @app/api... prisma",
     "db:migrate": "pnpm --filter @app/prisma run db:migrate",
     "db:deploy": "pnpm --filter @app/prisma run db:deploy",
     "db:studio": "pnpm --filter @app/prisma run db:studio",
-    "nuke": "rm -rf node_modules && find . -name '.nuxt' -type d -prune -exec rm -rf {} + && find . -name 'dist' -type d -prune -exec rm -rf {} + && find . -name '.output' -type d -prune -exec rm -rf {} +"
+    "nuke": "rm -rf node_modules .turbo .pnpm-store && find . -type d \\( -name '.nuxt' -o -name '.output' -o -name 'dist' -o -name 'coverage' \\) -prune -exec rm -rf {} +"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^2.1.4",

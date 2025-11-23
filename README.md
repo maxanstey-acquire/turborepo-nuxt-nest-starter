@@ -1,69 +1,55 @@
 # Nest + Nuxt + Packages Starter
 
-Nuxt + Nest starter that demonstrates typed front/back communication through a shared oRPC contract and a modular
-clean-architecture backend.
+Typed oRPC contract shared between a Nuxt 4 frontend and Nest 11 backend, laid out with clean-architecture boundaries.
+This README is a quick-start and map; deeper docs will live alongside each app/package.
 
-## Apps
+## Quick Start
 
-- `apps/ui` – Nuxt 4 SPA that imports the shared oRPC client via `useContractsClient`, reads
-  `runtimeConfig.public.apiUrl`, and shows how to call `client.auth.me()` with full type-safety plus `ORPCError`
-  handling.
-- `apps/api` – Nest 11 API that mounts feature modules and binds controllers to the shared contract using
-  `@orpc/nest` with Zod validation on every handler.
+1. Install deps: `pnpm install`
+2. Generate Prisma client: `npm run generate`
+3. Run the Prisma migrations: `npm run db:migrate`
+4. Build packages/ for Nest/Nuxt: `npm run build`
+5. Develop: `npm run dev`
 
-## Packages
+## Workspace Map
 
-- `packages/shared` – pure domain types (e.g., `User`) reused anywhere without infrastructure dependencies.
-- `packages/contracts` – the cross-cutting contract/port bundle. Defines the oRPC router with Zod schemas, exports the
-  generated client creator, and hosts ports that must be shared across feature modules (e.g., `FeatureToggleProvider`).
+- `apps/ui` – Nuxt SPA using `@app/contracts` client to call the backend with typed responses.
+- `apps/api` – Nest API binding controllers to the shared contract with `@orpc/nest` and Zod validation.
+- `packages/shared` – pure domain/value types reused everywhere.
+- `packages/contracts` – ORPC contract + Zod schemas + generated client factory; depends on `shared`.
+- `packages/prisma` – Prisma client generation plus Nest DI module/token; generates client and builds `dist/index.js`.
 
-## Architecture Highlights
+## Build/Dependency Graph
 
-- Layering: domain types stay in `shared`, application logic lives under `application/` folders, controllers are the
-  interface layer, and infrastructure adapters sit under `infrastructure/`.
-- Ports that are needed across multiple backend modules (e.g. `FeatureToggleProvider`, `MailerPort`) live in
-  `apps/api/src/shared/application/ports`. These are backend-only application ports used as abstractions for
-  cross-cutting capabilities. Their concrete implementations are bound globally in `core.module.ts`.
-- Module-local ports (e.g. `ProfilePictureService`) live inside that feature’s own `application/ports` folder and
-  should not be imported by other modules.
-- Controllers never new-up adapters; they inject use cases and delegate to `implement(contract.foo)` handlers, keeping
-  HTTP transport concerns out of the application layer.
-- Infrastructure classes (random avatar service, in-memory feature flags) implement the ports and are wired via Nest DI,
-  showing how adapters can be swapped without touching use cases.
+- `@app/shared` → `@app/contracts` → `@app/frontend` and `@app/backend`
+- `@app/prisma` → `@app/backend` (must run `pnpm --filter @app/prisma run generate` before building)
+
+Manual build order (if not using turbo orchestration):
+1. `pnpm --filter @app/prisma run generate`
+2. `pnpm --filter @app/prisma run build`
+3. `pnpm --filter @app/shared run build`
+4. `pnpm --filter @app/contracts run build`
+5. `pnpm --filter @app/backend run build` and `pnpm --filter @app/frontend run build`
+
+## Common Scripts (root)
+
+- `pnpm run dev` – prisma generate, then turbo dev for apps.
+- `pnpm run build` – prisma generate, then turbo build across the graph.
+- `pnpm run check` – lint + typecheck.
+- `pnpm run generate` – prisma generate only.
+- `pnpm run nuke` – wipe node_modules, turbo cache, pnpm store, and build artifacts.
+
+## Architecture Snapshot
+
+- Layering: domain types in `shared`, application/use cases in `application/`, controllers as interface layer,
+  infrastructure adapters in `infrastructure/`.
+- Cross-cutting backend ports live in `apps/api/src/shared/application/ports`; module-local ports stay within their
+  feature module.
+- Abstract classes are instead of symbols for DI tokens.
 
 ## Example Flow
 
 1. Frontend composable builds the oRPC client with the shared contract and cookies enabled.
 2. `client.auth.me()` hits the Nest controller bound to `contract.auth.me`.
-3. Controller calls `GetUserUseCase`, which orchestrates domain data and the injected ports (`ProfilePictureService`,
-   `FeatureToggleProvider`).
-4. Infrastructure adapters fulfill those ports (generate avatar URLs, toggle flags) and return values to the use case,
-   which returns a shared `User` type that matches the Zod schema.
-
-## DI Tokens via Abstract Classes
-
-This starter uses **abstract classes as DI tokens** instead of Nest symbols.  
-Each cross-cutting port is declared as an abstract class with a private constructor (so it cannot be instantiated):
-
-```
-export abstract class FeatureToggleProvider {
-  private constructor() {}
-  abstract isEnabled(flag: FeatureFlagKey): Promise<boolean>;
-}
-```
-
-Concrete adapters **implement** the abstract class (not extend it), giving you interface-like semantics with a runtime
-token:
-
-```
-export class InMemoryFeatureToggleProvider implements FeatureToggleProvider {
-  async isEnabled(flag: FeatureFlagKey): Promise<boolean> { ... }
-}
-```
-
-This keeps DI wiring simple and type-safe while avoiding Nest’s symbol indirection.
-
-## Notes
-
-- Every example is there to illustrate the architecture: feature flags prove cross-module ports, random avatars show
-  module-scoped ports, and the Nuxt page demonstrates end-to-end typed comms.
+3. Controller calls a use case that orchestrates domain data and injected ports.
+4. Infrastructure adapters fulfill ports and return values typed by shared models/Zod schemas.

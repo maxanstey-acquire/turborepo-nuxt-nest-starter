@@ -27,7 +27,8 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc-alias",
-    "check": "tsc -p tsconfig.json --noEmit"
+    "check": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@orpc/client": "^1.11.3",

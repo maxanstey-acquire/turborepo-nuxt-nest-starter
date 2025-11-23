@@ -2,17 +2,13 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["tsconfig.base.json", "package.json", "turbo.json"],
   "tasks": {
-    "prepare": {
+    "generate": {
       "cache": false,
-      "dependsOn": ["^prepare"]
-    },
-    "dev": {
-      "cache": false,
-      "dependsOn": ["^prepare"],
-      "persistent": true
+      "outputs": ["packages/prisma/generated/**"]
     },
     "build": {
-      "dependsOn": ["^build", "check"]
+      "dependsOn": ["^build", "generate"],
+      "outputs": ["dist/**", ".output/**", ".nuxt/**"]
     },
     "lint": {
       "outputs": [],
@@ -29,6 +25,14 @@
     "test": {
       "dependsOn": ["lint"],
       "outputs": ["coverage/**"]
+    },
+    "dev": {
+      "dependsOn": ["generate"],
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false
     }
   }
 }

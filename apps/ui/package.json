@@ -16,7 +16,8 @@
     "fix": "eslint . --fix",
     "check": "nuxt typecheck",
     "check-tsc": "vue-tsc --strict -p tsconfig.json --noEmit",
-    "prepare": "nuxt prepare"
+    "prepare": "nuxt prepare",
+    "clean": "rm -rf .nuxt .output dist"
   },
   "turbo": {
     "outputs": [".nuxt/**", ".output/**"]

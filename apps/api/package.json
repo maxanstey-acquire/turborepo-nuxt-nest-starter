@@ -16,6 +16,7 @@
     "lint": "eslint .",
     "fix": "eslint . --fix",
     "check": "tsc -p tsconfig.app.json --noEmit",
+    "clean": "rm -rf dist",
     "serve": "NODE_ENV=production node -r tsconfig-paths/register dist/apps/backend/main.js"
   },
   "turbo": {
